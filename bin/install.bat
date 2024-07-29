@@ -8,6 +8,8 @@ python --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo Python is not installed. Downloading and installing Python for Windows...
     powershell -Command "Start-BitsTransfer -Source https://www.python.org/ftp/python/3.9.13/python-3.9.13-amd64.exe -Destination python-installer.exe"
+    echo Python installer downloaded. Running python-installer.exe
+    echo If prompted: allow Python to make changes to your system
     python-installer.exe /quiet InstallAllUsers=1 PrependPath=1
     :: Check if python installation was successful
     if %errorlevel% neq 0 (
